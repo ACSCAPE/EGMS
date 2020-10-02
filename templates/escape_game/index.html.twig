@@ -5,6 +5,8 @@
 {% block body %}
     <h1>EscapeGame index</h1>
 
+
+
     <table class="table">
         <thead>
             <tr>
@@ -34,20 +36,38 @@
         </thead>
         <tbody>
         {% for escape_game in escape_games %}
+
+        <div class="container d-flex ">
+          <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{ escape_game.categoryName }}</div>
+            <img src="{{ escape_game.resumeImage }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title">{{ escape_game.title }}</h4>
+              <p class="card-text">{{ escape_game.resumeText }}</p>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+        </div>
+
             <tr>
                 <td>{{ escape_game.id }}</td>
-                <td>{{ escape_game.title }}</td>
+                <td></td>
                 <td>{{ escape_game.duration ? escape_game.duration|date('H:i:s') : '' }}</td>
                 <td>{{ escape_game.dateTime ? escape_game.dateTime|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ escape_game.numberMin }}</td>
                 <td>{{ escape_game.numberMax }}</td>
                 <td>{{ escape_game.public ? 'Yes' : 'No' }}</td>
                 <td>{{ escape_game.excerpt }}</td>
-                <td>{{ escape_game.categoryName }}</td>
+                <td></td>
                 <td>{{ escape_game.categoryFont }}</td>
                 <td>{{ escape_game.categoryColor }}</td>
-                <td>{{ escape_game.resumeText }}</td>
-                <td>{{ escape_game.resumeImage }}</td>
+                <td></td>
+                <td></td>
                 <td>{{ escape_game.introductionText }}</td>
                 <td>{{ escape_game.introductionImage }}</td>
                 <td>{{ escape_game.instructionsText }}</td>
