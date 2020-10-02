@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EscapeGame{% endblock %}
+
+{% block body %}
+    <h1>EscapeGame</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ escape_game.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ escape_game.title }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ escape_game.duration ? escape_game.duration|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_time</th>
+                <td>{{ escape_game.dateTime ? escape_game.dateTime|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Number_min</th>
+                <td>{{ escape_game.numberMin }}</td>
+            </tr>
+            <tr>
+                <th>Number_max</th>
+                <td>{{ escape_game.numberMax }}</td>
+            </tr>
+            <tr>
+                <th>Public</th>
+                <td>{{ escape_game.public ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Excerpt</th>
+                <td>{{ escape_game.excerpt }}</td>
+            </tr>
+            <tr>
+                <th>Category_name</th>
+                <td>{{ escape_game.categoryName }}</td>
+            </tr>
+            <tr>
+                <th>Category_font</th>
+                <td>{{ escape_game.categoryFont }}</td>
+            </tr>
+            <tr>
+                <th>Category_color</th>
+                <td>{{ escape_game.categoryColor }}</td>
+            </tr>
+            <tr>
+                <th>Resume_text</th>
+                <td>{{ escape_game.resumeText }}</td>
+            </tr>
+            <tr>
+                <th>Resume_image</th>
+                <td>{{ escape_game.resumeImage }}</td>
+            </tr>
+            <tr>
+                <th>Introduction_text</th>
+                <td>{{ escape_game.introductionText }}</td>
+            </tr>
+            <tr>
+                <th>Introduction_image</th>
+                <td>{{ escape_game.introductionImage }}</td>
+            </tr>
+            <tr>
+                <th>Instructions_text</th>
+                <td>{{ escape_game.instructionsText }}</td>
+            </tr>
+            <tr>
+                <th>Instructions_image</th>
+                <td>{{ escape_game.instructionsImage }}</td>
+            </tr>
+            <tr>
+                <th>HappyEnd_text</th>
+                <td>{{ escape_game.happyEndText }}</td>
+            </tr>
+            <tr>
+                <th>HappyEnd_image</th>
+                <td>{{ escape_game.happyEndImage }}</td>
+            </tr>
+            <tr>
+                <th>GameOver_text</th>
+                <td>{{ escape_game.gameOverText }}</td>
+            </tr>
+            <tr>
+                <th>GameOver_image</th>
+                <td>{{ escape_game.gameOverImage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('escape_game_index') }}">back to list</a>
+
+    <a href="{{ path('escape_game_edit', {'id': escape_game.id}) }}">edit</a>
+
+    {{ include('escape_game/_delete_form.html.twig') }}
+{% endblock %}

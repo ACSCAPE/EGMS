@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EscapeGame index{% endblock %}
+
+{% block body %}
+    <h1>EscapeGame index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Duration</th>
+                <th>Date_time</th>
+                <th>Number_min</th>
+                <th>Number_max</th>
+                <th>Public</th>
+                <th>Excerpt</th>
+                <th>Category_name</th>
+                <th>Category_font</th>
+                <th>Category_color</th>
+                <th>Resume_text</th>
+                <th>Resume_image</th>
+                <th>Introduction_text</th>
+                <th>Introduction_image</th>
+                <th>Instructions_text</th>
+                <th>Instructions_image</th>
+                <th>HappyEnd_text</th>
+                <th>HappyEnd_image</th>
+                <th>GameOver_text</th>
+                <th>GameOver_image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for escape_game in escape_games %}
+            <tr>
+                <td>{{ escape_game.id }}</td>
+                <td>{{ escape_game.title }}</td>
+                <td>{{ escape_game.duration ? escape_game.duration|date('H:i:s') : '' }}</td>
+                <td>{{ escape_game.dateTime ? escape_game.dateTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ escape_game.numberMin }}</td>
+                <td>{{ escape_game.numberMax }}</td>
+                <td>{{ escape_game.public ? 'Yes' : 'No' }}</td>
+                <td>{{ escape_game.excerpt }}</td>
+                <td>{{ escape_game.categoryName }}</td>
+                <td>{{ escape_game.categoryFont }}</td>
+                <td>{{ escape_game.categoryColor }}</td>
+                <td>{{ escape_game.resumeText }}</td>
+                <td>{{ escape_game.resumeImage }}</td>
+                <td>{{ escape_game.introductionText }}</td>
+                <td>{{ escape_game.introductionImage }}</td>
+                <td>{{ escape_game.instructionsText }}</td>
+                <td>{{ escape_game.instructionsImage }}</td>
+                <td>{{ escape_game.happyEndText }}</td>
+                <td>{{ escape_game.happyEndImage }}</td>
+                <td>{{ escape_game.gameOverText }}</td>
+                <td>{{ escape_game.gameOverImage }}</td>
+                <td>
+                    <a href="{{ path('escape_game_show', {'id': escape_game.id}) }}">show</a>
+                    <a href="{{ path('escape_game_edit', {'id': escape_game.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="22">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('escape_game_new') }}">Create new</a>
+{% endblock %}
